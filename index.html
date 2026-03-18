@@ -3,20 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnPrem Solutions | Secure Local Infrastructure</title>
-
-    <!-- Google Fonts -->
+    <title>Dot2Dot Solutions | Secure Local Infrastructure</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.5);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass: rgba(30, 41, 59, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+        h1 { font-size: 3.5rem; letter-spacing: -1px; background: linear-gradient(to right, #fff, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 2.5rem; margin-bottom: 15px; color: #fff; }
+        h3 { color: #fff; margin-bottom: 10px; }
+        p { color: var(--text-muted); }
+
+        .btn { display: inline-block; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; position: relative; overflow: hidden; z-index: 1; }
+        .btn-primary { background: var(--primary); color: var(--bg-dark); box-shadow: 0 0 20px var(--primary-glow); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px var(--primary-glow); }
+        .btn-secondary { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-secondary:hover { background: var(--primary); color: var(--bg-dark); }
+
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+        /* Updated Logo Styling */
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-img { height: 40px; width: auto; display: block; }
+        .logo-text { font-size: 1.4rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+        .logo-text span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--primary); }
+
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: url('https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover; background-attachment: fixed; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(15,23,42,0.7), rgba(15,23,42,1)); }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; animation: fadeInUp 1s ease-out; }
+        .hero p { font-size: 1.25rem; color: #cbd5e1; margin: 20px auto 40px; max-width: 700px; }
+
+        .services-section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .service-card { background: var(--glass); padding: 40px 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+        .service-card:hover { transform: translateY(-10px); border-color: rgba(34, 211, 238, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .icon { font-size: 3rem; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 10px rgba(34,211,238,0.3)); }
+        .read-more { display: inline-block; margin-top: 20px; font-size: 0.9rem; color: var(--primary); font-weight: 600; opacity: 0; transform: translateX(-10px); transition: 0.3s; }
+        .service-card:hover .read-more { opacity: 1; transform: translateX(0); }
+
+        .advantages-section { padding: 100px 0; background: #172033; }
+        .advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .advantage-item { padding: 30px; border-radius: 12px; transition: 0.3s; }
+        .advantage-item:hover { background: rgba(255,255,255,0.03); }
+        .advantage-item h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 15px; }
+
+        .contact-section { padding: 100px 0; text-align: center; }
+        .contact-box { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 80px 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); max-width: 900px; margin: 0 auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+
+        footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #64748b; font-size: 0.9rem; }
+
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+        .modal.active { opacity: 1; }
+        .modal-content { background: #1e293b; border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 16px; width: 90%; max-width: 650px; position: relative; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); }
+        .modal.active .modal-content { transform: scale(1); }
+        .modal-header { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 15px; }
+        .modal-icon { font-size: 2.5rem; }
+        .close-btn { position: absolute; top: 20px; right: 25px; color: #94a3b8; font-size: 30px; cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: #fff; transform: rotate(90deg); }
+        .modal-body { padding: 30px; }
+        .modal-body li { position: relative; padding-left: 25px; margin-bottom: 15px; color: #cbd5e1; font-size: 1.05rem; }
+        .modal-body li::before { content: '▹'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .nav-links { display: none; } .hero { height: auto; padding: 150px 0 100px; } }
+    </style>
 </head>
 <body>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">OnPrem<span>Solutions</span></div>
+            <!-- Updated Logo with Image -->
+            <div class="logo-container">
+                <img src="logo.png" alt="Dot2Dot Solutions Logo" class="logo-img">
+                <div class="logo-text">Dot2Dot<span>Solutions</span></div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#advantages">Why On-Prem?</a></li>
@@ -30,7 +117,7 @@
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1>Total Control.<br>Zero Cloud Dependency.</h1>
-            <p>Expert network, server, and security solutions designed for complete data sovereignty and local performance.</p>
+            <p>Expert network, server, and security solutions designed for complete data sovereignty.</p>
             <a href="#services" class="btn btn-primary">Explore Services</a>
         </div>
     </header>
@@ -44,75 +131,35 @@
             </div>
 
             <div class="services-grid">
-                <!-- Service Cards -->
                 <div class="service-card" onclick="openModal('network')">
-                    <div class="icon">🌐</div>
-                    <h3>Network Services</h3>
-                    <p>LAN/VLAN design, firewalls, VPNs, and local bandwidth control.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">🌐</div><h3>Network Services</h3><p>LAN/VLAN design, firewalls, VPNs, and local bandwidth control.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('server')">
-                    <div class="icon">🖥️</div>
-                    <h3>Server & Virtualization</h3>
-                    <p>Windows/Linux setup, Active Directory, VMware/Hyper-V, and tuning.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">🖥️</div><h3>Server & Virtualization</h3><p>Windows/Linux setup, Active Directory, VMware/Hyper-V, and tuning.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('sysadmin')">
-                    <div class="icon">⚙️</div>
-                    <h3>System Administration</h3>
-                    <p>OS maintenance, Group Policy, offline patching, and access control.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">⚙️</div><h3>System Administration</h3><p>OS maintenance, Group Policy, offline patching, and access control.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('security')">
-                    <div class="icon">🛡️</div>
-                    <h3>Cybersecurity</h3>
-                    <p>Local firewall rules, endpoint security, NAC, and ransomware recovery.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">🛡️</div><h3>Cybersecurity</h3><p>Local firewall rules, endpoint security, NAC, and ransomware recovery.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('backup')">
-                    <div class="icon">💾</div>
-                    <h3>Backup & DR</h3>
-                    <p>Offline backups (NAS/RAID), automated scheduling, and disaster recovery.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">💾</div><h3>Backup & DR</h3><p>Offline backups (NAS/RAID), automated scheduling, and disaster recovery.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('support')">
-                    <div class="icon">🔧</div>
-                    <h3>IT Support & AMC</h3>
-                    <p>Onsite support, remote LAN assistance, and preventive maintenance.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">🔧</div><h3>IT Support & AMC</h3><p>Onsite support, remote LAN assistance, and preventive maintenance.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('software')">
-                    <div class="icon">📊</div>
-                    <h3>Software & Apps</h3>
-                    <p>On-premise ERP/CRM, local databases, and custom integration.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">📊</div><h3>Software & Apps</h3><p>On-premise ERP/CRM, local databases, and custom integration.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('consulting')">
-                    <div class="icon">📈</div>
-                    <h3>Consulting & Planning</h3>
-                    <p>Office IT setup, expansion planning, and capacity forecasting.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">📈</div><h3>Consulting & Planning</h3><p>Office IT setup, expansion planning, and capacity forecasting.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('compliance')">
-                    <div class="icon">✅</div>
-                    <h3>Compliance & Audits</h3>
-                    <p>Internal IT audits, policy creation, and regulatory support.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">✅</div><h3>Compliance & Audits</h3><p>Internal IT audits, policy creation, and regulatory support.</p><span class="read-more">View Details &rarr;</span>
                 </div>
-
                 <div class="service-card" onclick="openModal('training')">
-                    <div class="icon">🎓</div>
-                    <h3>Training & Docs</h3>
-                    <p>Employee training, SOP creation, and architecture documentation.</p>
-                    <span class="read-more">View Details &rarr;</span>
+                    <div class="icon">🎓</div><h3>Training & Docs</h3><p>Employee training, SOP creation, and architecture documentation.</p><span class="read-more">View Details &rarr;</span>
                 </div>
             </div>
         </div>
@@ -121,26 +168,12 @@
     <!-- Advantages Section -->
     <section id="advantages" class="advantages-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Why Choose On-Premise?</h2>
-            </div>
+            <div class="section-header"><h2>Why Choose On-Premise?</h2></div>
             <div class="advantages-grid">
-                <div class="advantage-item">
-                    <h3>🔒 Data Sovereignty</h3>
-                    <p>100% physical control. Your data never leaves your building.</p>
-                </div>
-                <div class="advantage-item">
-                    <h3>⚡ Maximum Performance</h3>
-                    <p>Local LAN speeds with zero latency or internet dependency.</p>
-                </div>
-                <div class="advantage-item">
-                    <h3>💰 Predictable Costs</h3>
-                    <p>No surprise egress fees or fluctuating cloud subscription rates.</p>
-                </div>
-                <div class="advantage-item">
-                    <h3>🛡️ Enhanced Security</h3>
-                    <p>Air-gapped potential and defense-in-depth against external threats.</p>
-                </div>
+                <div class="advantage-item"><h3>🔒 Data Sovereignty</h3><p>100% physical control. Your data never leaves your building.</p></div>
+                <div class="advantage-item"><h3>⚡ Maximum Performance</h3><p>Local LAN speeds with zero latency or internet dependency.</p></div>
+                <div class="advantage-item"><h3>💰 Predictable Costs</h3><p>No surprise egress fees or fluctuating cloud subscription rates.</p></div>
+                <div class="advantage-item"><h3>🛡️ Enhanced Security</h3><p>Air-gapped potential and defense-in-depth against external threats.</p></div>
             </div>
         </div>
     </section>
@@ -152,18 +185,18 @@
                 <h2>Ready to Secure Your Infrastructure?</h2>
                 <p>Contact us for a consultation on your on-premise needs.</p>
                 <br>
-                <a href="mailto:info@onpremsolutions.com" class="btn btn-secondary">Get in Touch</a>
+                <a href="mailto:info@dot2dotsolutions.com" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 OnPrem Solutions. All Rights Reserved.</p>
+            <p>&copy; 2024 Dot2Dot Solutions. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- MODAL POPUP STRUCTURE -->
+    <!-- Modal Structure -->
     <div id="service-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -172,14 +205,61 @@
                 <h2 id="modal-title">Service Title</h2>
             </div>
             <div class="modal-body">
-                <ul id="modal-list">
-                    <!-- List items injected by JS -->
-                </ul>
+                <ul id="modal-list"></ul>
             </div>
         </div>
     </div>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const serviceData = {
+            'network': { title: 'Network Services', icon: '🌐', details: ['LAN setup, configuration, and optimization', 'VLAN design and logical segmentation', 'IP addressing schema and network planning', 'On-premise Firewall configuration', 'Site-to-site and Remote Access VPN setup', 'Local network monitoring tools', 'Bandwidth control and traffic shaping'] },
+            'server': { title: 'Server & Virtualization', icon: '🖥️', details: ['Installation & configuration of Windows/Linux servers', 'Active Directory (AD) setup', 'File server and shared storage', 'Virtualization (VMware vSphere / Hyper-V)', 'Server performance tuning', 'Centralized log monitoring'] },
+            'sysadmin': { title: 'System Administration', icon: '⚙️', details: ['OS installation and maintenance', 'User identity and access management', 'Group Policy Object (GPO) configuration', 'Offline software deployment', 'Patch management via internal WSUS'] },
+            'security': { title: 'Cybersecurity', icon: '🛡️', details: ['Firewall setup and rule management', 'Enterprise Antivirus/Endpoint security', 'Network Access Control (NAC)', 'Internal vulnerability scanning', 'USB and device control policies', 'Ransomware recovery'] },
+            'backup': { title: 'Backup & DR', icon: '💾', details: ['Local backup solutions (NAS/RAID)', 'Automated backup scheduling', 'Disaster Recovery planning', 'Rapid data restoration', 'Immutable backup strategies'] },
+            'support': { title: 'IT Support & AMC', icon: '🔧', details: ['Annual Maintenance Contracts (AMC)', 'Onsite technical support', 'Secure remote support within LAN', 'Preventive maintenance'] },
+            'software': { title: 'Software & Apps', icon: '📊', details: ['On-premise ERP/CRM deployment', 'Local Database setup (SQL/PostgreSQL)', 'Custom software development', 'System integration'] },
+            'consulting': { title: 'Consulting & Planning', icon: '📈', details: ['Office IT setup planning', 'Network expansion roadmaps', 'Server capacity forecasting', 'Technology audits'] },
+            'compliance': { title: 'Compliance & Audits', icon: '✅', details: ['Internal IT audits', 'Security policy creation', 'Audit log generation', 'Regulatory support'] },
+            'training': { title: 'Training & Docs', icon: '🎓', details: ['Employee security training', 'SOP creation', 'Network architecture documentation', 'Knowledge transfer'] }
+        };
+
+        const modal = document.getElementById('service-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalList = document.getElementById('modal-list');
+
+        function openModal(key) {
+            const data = serviceData[key];
+            if (!data) return;
+            modalTitle.innerText = data.title;
+            modalIcon.innerText = data.icon;
+            modalList.innerHTML = '';
+            data.details.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                modalList.appendChild(li);
+            });
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeModal();
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") closeModal();
+        });
+    </script>
 </body>
 </html>
