@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnPrem Solutions | Secure Local Infrastructure</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">OnPrem<span>Solutions</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#advantages">Why On-Prem?</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Total Control.<br>Zero Cloud Dependency.</h1>
+            <p>Expert network, server, and security solutions designed for complete data sovereignty and local performance.</p>
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core On-Premise Services</h2>
+                <p>Click on any module below to view detailed capabilities.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service Cards -->
+                <div class="service-card" onclick="openModal('network')">
+                    <div class="icon">🌐</div>
+                    <h3>Network Services</h3>
+                    <p>LAN/VLAN design, firewalls, VPNs, and local bandwidth control.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('server')">
+                    <div class="icon">🖥️</div>
+                    <h3>Server & Virtualization</h3>
+                    <p>Windows/Linux setup, Active Directory, VMware/Hyper-V, and tuning.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('sysadmin')">
+                    <div class="icon">⚙️</div>
+                    <h3>System Administration</h3>
+                    <p>OS maintenance, Group Policy, offline patching, and access control.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('security')">
+                    <div class="icon">🛡️</div>
+                    <h3>Cybersecurity</h3>
+                    <p>Local firewall rules, endpoint security, NAC, and ransomware recovery.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('backup')">
+                    <div class="icon">💾</div>
+                    <h3>Backup & DR</h3>
+                    <p>Offline backups (NAS/RAID), automated scheduling, and disaster recovery.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('support')">
+                    <div class="icon">🔧</div>
+                    <h3>IT Support & AMC</h3>
+                    <p>Onsite support, remote LAN assistance, and preventive maintenance.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('software')">
+                    <div class="icon">📊</div>
+                    <h3>Software & Apps</h3>
+                    <p>On-premise ERP/CRM, local databases, and custom integration.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('consulting')">
+                    <div class="icon">📈</div>
+                    <h3>Consulting & Planning</h3>
+                    <p>Office IT setup, expansion planning, and capacity forecasting.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('compliance')">
+                    <div class="icon">✅</div>
+                    <h3>Compliance & Audits</h3>
+                    <p>Internal IT audits, policy creation, and regulatory support.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+
+                <div class="service-card" onclick="openModal('training')">
+                    <div class="icon">🎓</div>
+                    <h3>Training & Docs</h3>
+                    <p>Employee training, SOP creation, and architecture documentation.</p>
+                    <span class="read-more">View Details &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose On-Premise?</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>🔒 Data Sovereignty</h3>
+                    <p>100% physical control. Your data never leaves your building.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>⚡ Maximum Performance</h3>
+                    <p>Local LAN speeds with zero latency or internet dependency.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>💰 Predictable Costs</h3>
+                    <p>No surprise egress fees or fluctuating cloud subscription rates.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>🛡️ Enhanced Security</h3>
+                    <p>Air-gapped potential and defense-in-depth against external threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Ready to Secure Your Infrastructure?</h2>
+                <p>Contact us for a consultation on your on-premise needs.</p>
+                <br>
+                <a href="mailto:info@onpremsolutions.com" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 OnPrem Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP STRUCTURE -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <span id="modal-icon" class="modal-icon"></span>
+                <h2 id="modal-title">Service Title</h2>
+            </div>
+            <div class="modal-body">
+                <ul id="modal-list">
+                    <!-- List items injected by JS -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
