@@ -13,7 +13,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     background-color: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.6;
@@ -103,7 +103,7 @@ p { color: var(--text-muted); }
     display: flex; align-items: center; justify-content: center;
     text-align: center;
     position: relative;
-    background: url('https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    background: url('assets/images/hero-bg.png') no-repeat center center/cover;
     background-attachment: fixed;
 }
 
